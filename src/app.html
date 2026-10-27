@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="%paraglide.lang%" dir="%paraglide.dir%">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="text-scale" content="scale" />
+    <!-- The design system, read live from src/app.css (see routes/app.css): a save from the configurator shows on the
+         next refresh. Before the app's own styles, so project.css and the components still come after it. -->
+    <link rel="stylesheet" href="/app.css" />
+    %sveltekit.head%
+  </head>
+  <body class="ds-root" data-sveltekit-preload-data="hover">
+    <div style="display: contents">%sveltekit.body%</div>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+/* This project's own shared classes, on top of app.css. Tokens only; app.css is rewritten by the configurator, this file never is. A component keeps its styles inside itself. */
+
+/* The cards' colour: between the design system's card and the theme's lightest tint,
+   nearer the tint — lighter than the page, so colours on a card read clearly, without standing out as white. Made
+   from the two tokens, so it follows the configurator; anything that must match a card's background uses this. */
+:root {
+  --card-bg: color-mix(in srgb, var(--bg-card) 20%, var(--accent-bg-subtle));
+  /* The charts' colour: the primary itself, so it follows the
+     configurator. Not its 3:1 shade: a darkened yellow turned mustard, the same as "not mentioned" in a posting's fit
+     bar (--warning). Faint on a card, so every bar carries its number as text. Not a state colour: never good or bad. */
+  --chart: var(--accent);
+}
+
+.card {
+  background: var(--card-bg);
+}
+
+/* The browser's own margin around the page: the sidebar sits against the window's edge */
+body {
+  margin: 0;
+}
+
+/* On a phone a card's padding is one step smaller: at spacious density it took a fifth of the screen's width */
+@media (max-width: 30rem) {
+  .card {
+    padding: var(--space-3);
+  }
+}
+
+/* A long text field scrolls inside itself: once its label has floated, the label sits on a strip of the field's own
+   colour, so the text scrolls under it instead of through it */
+.field textarea:is(:focus, .is-focus, :not(:placeholder-shown)) + label {
+  top: 0;
+  left: 0;
+  right: var(--space-4);
+  box-sizing: border-box;
+  height: calc(var(--field-pad-top-multiline) - var(--space-1));
+  padding: var(--field-label-top) var(--space-3) 0;
+  background: var(--accent-bg-subtle);
+  border-radius: var(--radius-field) var(--radius-field) 0 0;
+}
+
+.field textarea:is(:hover, .is-hover) + label {
+  background: var(--accent-bg);
+}
+
+.field textarea:is(:focus, .is-focus) + label {
+  background: var(--bg-card);
+}

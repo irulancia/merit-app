@@ -1,0 +1,8 @@
+# Always LF, so the start files and shell scripts keep working when checked out on Windows.
+* text=auto eol=lf
+*.sh text eol=lf
+# The start files keep the line endings their system needs, whatever the checkout: a .bat with Unix endings can
+# misbehave on Windows, a .command or .sh with Windows endings fails on a Mac or Linux
+*.bat text eol=crlf
+*.command text eol=lf
+*.sh text eol=lf
